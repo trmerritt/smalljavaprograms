@@ -161,3 +161,80 @@ class Main {
        return result;
    }
 }
+
+
+// Encapsulation
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner read = new Scanner(System.in);
+	    int a = read.nextInt();
+	    
+	    Pupil pupil =  new Pupil();
+            pupil.setAge(a);
+	}
+}
+
+class Pupil{
+    private int age;
+    
+    //complete setter method
+    public void  setAge(int a){
+        if (a > 6) {
+            age += a;
+            System.out.println("Welcome");
+        } else {
+            System.out.println("Sorry");
+        }
+       
+    }
+    
+    public int getAge(){
+        return age;
+    }
+}
+
+
+
+// Inheritance Challenge
+//be attentive to access modifiers
+class Standard {
+   protected void draw() {
+       System.out.println("Drawing");
+   }
+
+   protected void write() {
+       System.out.println("Writing");
+   }
+}
+//fix the class
+class Pro extends Standard {
+
+   protected void useEffects() {
+       System.out.println("Using Effects");
+   }
+
+   protected void changeResolution() {
+       System.out.println("Changing Resolution");
+   }
+}
+
+public class Main {
+   public static void main(String[] args) {
+       Standard standard1 = new Standard();
+       Pro pro1 = new Pro();
+       
+       //standard version
+       standard1.draw();
+       standard1.write();
+       
+       //Pro version
+       pro1.draw();
+       pro1.write();
+       pro1.useEffects();
+       pro1.changeResolution();
+   }
+}
+
+
