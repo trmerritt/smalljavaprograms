@@ -281,3 +281,179 @@ class HybridVehicle extends Vehicle{
         System.out.println("I use both petrol and electricity");
     }
 }
+
+
+
+// Overloading Challenge
+public class Main {
+    public static void main(String[] args) {
+        
+        int a = 5;
+        double b = 10.2;
+        
+        System.out.println(doubleTheValue(a));
+        System.out.println(doubleTheValue(b));
+                
+    }
+    //complete the method for integer value type
+    public static int doubleTheValue(int number) {
+        return number*2;
+    }
+    //overload the method for double value type
+    public static double doubleTheValue(double num) {
+        return num*2;
+    }
+}
+
+
+
+// Abastract Classes Challenge
+class Main {
+   public static void main(String[] args) {
+       //do not touch this code
+       Monopoly monopoly = new Monopoly();
+       Chess chess = new Chess();
+       Battleships battleships = new Battleships();
+       
+       monopoly.play();
+       chess.play();
+       battleships.play();
+   }
+}
+
+abstract class Game {
+   abstract String getName();
+   abstract void play();
+}
+
+class Monopoly extends Game {
+
+   //give "Monopoly" name to game
+   String getName() {
+      String name = "Monopoly";
+       return name;
+   }
+
+   // play method should print "Buy all property."
+   void play() {
+      System.out.println("Buy all property.");
+   }
+}
+
+class Chess extends Game {
+
+   //give "Chess" name to game
+   String getName() {
+       String name = "Chess";
+       return name;
+   }
+
+   // play method should print "Kill the enemy king."
+   void play() {
+       System.out.println("Kill the enemy king.");
+   }
+}
+
+class Battleships extends Game {
+
+   //give "Battleships" name to game
+   String getName() {
+       String name = "Battleships";
+       return name;
+   }
+
+   // play method should print "Sink all ships."
+   void play() {
+       System.out.println("Sink all ships.");
+   }
+}
+
+
+// Interfaces Challenge
+class Main {
+   public static void main(String[] args) {
+       Animal dog = new Dog();
+       Animal cat = new Cat();
+       
+       dog.swim();
+       dog.play();
+       cat.swim();
+       cat.play();
+
+   }
+}
+
+interface Swimmer {
+   void swim();
+}
+
+interface Player {
+   void play();
+}
+
+abstract class Animal implements Swimmer, Player {
+   public abstract void swim();
+   public abstract void play();
+}
+
+class Dog extends Animal {
+   //Override the swim() and the play() methods
+   public void swim() {
+      System.out.println("Dog is swimming");
+   }
+   public void play() {
+      System.out.println("Dog is playing");
+   }
+}
+
+class Cat extends Animal {
+   //Override the swim() and the play() methods
+   public void swim() {
+      System.out.println("Cat is swimming");
+   }
+   public void play() {
+      System.out.println("Cat is playing");
+   }
+}
+
+
+// Casting Challenge
+import java.util.Scanner;
+
+class Main {
+   public static void main(String[] args) {
+       Scanner read = new Scanner(System.in);
+       char a = read.next().charAt(0);
+       
+       //your code goes here
+       int typeCasted = (int) a;
+       System.out.println(typeCasted);
+    }   
+}
+
+
+// Anonymous Classes Challenge
+public class Main
+{
+	public static void main(String[] args) {
+        
+       Purchase customer = new Purchase();
+       Purchase specialCustomer = new Purchase(){
+           //your code goes here
+           @Override public int totalAmount(int price) {
+               return price - (price*20)/100;
+               }
+       };
+        
+        System.out.println(customer.totalAmount(1000));
+        System.out.println(specialCustomer.totalAmount(100000));
+	}
+}
+
+class Purchase {
+    int price;
+    
+    public int totalAmount(int price) {
+        return price - (price*10)/100;
+    }
+}
