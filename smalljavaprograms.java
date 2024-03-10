@@ -457,3 +457,91 @@ class Purchase {
         return price - (price*10)/100;
     }
 }
+
+
+// Exception Handling Challenge
+import java.util.Scanner;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    Scanner scanner = new Scanner(System.in);
+	    int choice = scanner.nextInt();
+	    
+	    String[] categories = {"PCs", "Notebooks", "Tablets", "Phones", "Аccessories"};
+	    
+	    //complete the code
+		if (choice >= 0 && choice < categories.length) {
+            try {
+                System.out.println(categories[choice]);
+            } catch (Exception e) {
+                System.out.println("An error occurred");
+            }
+        } else {
+            System.out.println("Wrong Option");
+        }
+    }
+
+
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    Scanner scanner = new Scanner(System.in);
+	    
+	    try {
+	        int num1 = scanner.nextInt();
+	        int num2 = scanner.nextInt();
+	        /*
+	        1. Error: division by zero
+	        2. Error: wrong value type
+	        */
+	        //your code goes here
+	    if (num2 == 0) {
+                throw new ArithmeticException();
+            }
+            
+            System.out.println(num1 / num2);
+            
+        } catch (ArithmeticException e) {
+            System.out.println("Error: division by zero");
+        } catch (InputMismatchException e) {
+            System.out.println("Error: wrong value type");
+        }
+    }
+}
+
+
+// Threads Challenge
+class Main {
+    public static void main(String[ ] args) {
+        Name name = new Name();
+        //set priority
+        name.setPriority(1);
+        
+        Welcome welcome = new Welcome();
+        //set priority
+        welcome.setPriority(10);
+        
+        name.start();
+        welcome.start();
+    }
+}
+
+//extend the Thread class
+class Welcome extends Thread{
+    public void run() {
+        System.out.println("Welcome!");
+    }
+}
+
+//extend the Thread class
+class Name extends Thread{
+    public void run() {
+        System.out.println("Please enter your name");
+    }
+}
