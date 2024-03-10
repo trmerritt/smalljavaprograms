@@ -545,3 +545,192 @@ class Name extends Thread{
         System.out.println("Please enter your name");
     }
 }
+
+
+
+// ArrayList Challenge
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[ ] args) {
+	    Scanner scanner = new Scanner(System.in);
+        
+        ArrayList<Integer> evennums = new ArrayList<Integer>();
+
+        int sum = 0;
+        
+        while(evennums.size()<3){
+            int num = scanner.nextInt();
+            //your code goes here
+            evennums.add(num);
+            sum += num;
+        }
+        
+        //calculate and output the average integer value
+        int average = sum / evennums.size();
+        System.out.println(average);
+    }
+}
+
+
+// LinkedList Challenge
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[ ] args) {
+	    Scanner scanner = new Scanner(System.in);
+        
+        
+        LinkedList<String> words = new LinkedList<String>();
+        
+        
+        while(words.size()<5){
+            String word = scanner.nextLine();
+            //add the word to LinkedList
+            words.add(word);
+            
+        }
+        
+        //your code goes here
+        for(String word: words) {
+            if(word.length() > 4) {
+                System.out.println(word);
+            }
+        }
+    }
+}
+
+
+// HashMap Challenge
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[ ] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        HashMap<String, Integer> ages = new HashMap<String, Integer>();
+        ages.put("David", 22);
+        ages.put("Tom", 23);
+        ages.put("Robert", 32);
+        ages.put("Alice", 21);
+        ages.put("Sophie", 19);
+        ages.put("Maria", 24);
+        ages.put("John", 28);
+        
+        
+        String[] nameArr = new String[ages.size()];
+        nameArr = ages.keySet().toArray(nameArr);
+        
+        int ageLimit = scanner.nextInt();
+        
+        for (String emp : nameArr){
+            //your code goes here
+            if (ages.get(emp) < ageLimit) {
+                ages.remove(emp);
+            }
+        }
+        
+        System.out.println(ages);
+    }
+}
+
+
+// Sorting Lists Challenge
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[ ] args) {
+        ArrayList<Integer> nums = new ArrayList<Integer>();
+        
+        Scanner scanner = new Scanner(System.in);
+        
+        while(nums.size()<5){
+            int num = scanner.nextInt();
+            //your code goes here
+            nums.add(num);
+        }
+        
+        //your code goes here
+        int max = Collections.max(nums);
+        int min = Collections.min(nums);
+        System.out.println(max);
+        System.out.println(min);
+    }
+}
+
+
+// Iterators Challenge
+import java.util.Scanner;
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[ ] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        LinkedList<Integer> nums = new LinkedList<Integer>();
+        
+        while(nums.size()<5){
+            int num = scanner.nextInt();
+            nums.add(num);
+        }
+        
+        
+        int sum = 0;
+        //your code goes here
+        Iterator<Integer> iterator = nums.iterator();
+        while(iterator.hasNext()) {
+            sum += iterator.next();
+        }
+        
+        
+        System.out.println(sum);
+    }
+}
+
+
+// Creating and writing files
+import java.io.File;
+import java.util.Scanner;
+import java.util.Formatter;
+
+public class Main {
+    public static void main(String[ ] args) {
+        Scanner input = new Scanner(System.in);
+        try {
+            Formatter f = new Formatter("tasks.txt");
+            int count = 0;
+            while(count < 3) {
+                //your code goes here
+                String task = input.nextLine();
+                f.format("%s\n", task);
+                count++;
+            }
+            f.close();
+        }
+        catch (Exception e) {
+            System.out.println("Error");
+        }
+        readFile();
+    }
+
+      public static void readFile() {
+        try {
+            File x = new File("tasks.txt");
+            Scanner sc = new Scanner(x);
+            while(sc.hasNext()) {
+                System.out.println(sc.next());
+            }
+            sc.close();
+        }
+        catch (Exception e) {
+            System.out.println("Error");
+        }
+      }
+}
